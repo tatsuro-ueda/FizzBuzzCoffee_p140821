@@ -16,7 +16,7 @@ module.exports = function(grunt) {
       options: {
         hostname: 'localhost',
         port: 9000,
-        base: 'presentation'
+        base: 'readme'
       },
       livereload: {
         options: {
@@ -24,7 +24,7 @@ module.exports = function(grunt) {
             return [
               lrSnippet,
               mountFolder(connect, '.tmp'),
-              mountFolder(connect, 'presentation')
+              mountFolder(connect, 'readme')
             ];
           }
         }
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
     watch: {
       mdpress: {
         files: [
-          'presentation.md',
+          'readme.md',
           'themes/{,*/}*.html',
           'themes/{,*/}*.css'
         ],
@@ -41,8 +41,8 @@ module.exports = function(grunt) {
       },
       livereload: {
         files: [
-          'presentation/index.html',
-          'presentation/css/{,*/}*.css'
+          'readme/index.html',
+          'readme/css/{,*/}*.css'
         ],
         tasks: ['livereload']
       }
@@ -54,7 +54,7 @@ module.exports = function(grunt) {
     },
     shell: {
       compile: {
-        command : 'mdpress presentation.md -s default'
+        command : 'mdpress readme.md -s default'
       }
     }
   });
