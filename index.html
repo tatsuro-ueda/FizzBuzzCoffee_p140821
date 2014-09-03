@@ -41,10 +41,9 @@
 <h2>Keywords</h2>
 
 <ul>
+<li>npm</li>
 <li>Gulp</li>
 <li>Mocha + expectJS</li>
-<li>npm install --save-dev</li>
-<li>npm run</li>
 </ul>
 </div>
       <div class='step' >
@@ -70,6 +69,23 @@
 </div>
       <div class='step' >
     
+<h2>NPM</h2>
+
+<p><img src="image/npm.png" alt="npm"></p>
+
+<p>Nodeのbundler。ローカルにインストールするのがデフォルト。</p>
+
+<h3>プロジェクトの初期化</h3>
+<pre><code class='prettyprint '>$ npm init
+</code></pre>
+<h3>モジュールをインストール</h3>
+<pre><code class='prettyprint '>$ npm install &lt; package-name &gt; --save-dev
+</code></pre>
+<h3>コマンドを実行</h3>
+<pre><code class='prettyprint '>$ npm run &lt; command &gt;
+</code></pre></div>
+      <div class='step' >
+    
 <h2>Nodeプロジェクトの初期化</h2>
 
 <p>まずは以下のように打つ。すると、対話形式でプロジェクトの情報を入力していくことができる。</p>
@@ -86,16 +102,6 @@ license: (ISC)
 </code></pre></div>
       <div class='step' >
     
-<h2>必要なモジュールをインストールする</h2>
-<pre><code class='prettyprint '>$ npm install mocha --save-dev
-$ npm install expect.js --save-dev
-$ npm install coffee-script --save-dev
-$ npm install gulp --save-dev
-$ npm install gulp-coffee --save-dev
-$ npm install gulp-mocha --save-dev
-</code></pre></div>
-      <div class='step' >
-    
 <p><code class='inline prettyprint'>--save-dev</code> オプション</p>
 
 <p>インストールしたモジュールの情報を自動で <strong>package.json</strong> の <code class='inline prettyprint'>devDependencies</code> に書いてくれるオプション。</p>
@@ -106,9 +112,47 @@ $ npm install gulp-mocha --save-dev
 </div>
       <div class='step' >
     
+<h2>必要なモジュールをインストールする</h2>
+<pre><code class='prettyprint '>$ npm install mocha --save-dev
+$ npm install expect.js --save-dev
+$ npm install coffee-script --save-dev
+$ npm install gulp --save-dev
+$ npm install gulp-coffee --save-dev
+$ npm install gulp-mocha --save-dev
+</code></pre></div>
+      <div class='step' >
+    
 <h2>Gulp</h2>
 
-<p><img src="image/gulp.png" alt="image"></p>
+<p><img src="image/gulp.png" alt="gulp"></p>
+
+<ul>
+<li>JavaScriptのMinifyやCSSプリプロセッサのコンパイルなどを行うことができるビルドツール</li>
+</ul>
+</div>
+      <div class='step' >
+    
+<h2>Gruntと何が違うのか</h2>
+
+<p><img src="image/grunt.png" alt="grunt"></p>
+
+<h3>1. Easy to use</h3>
+
+<p>コードでビルドタスクを実装するため、シンプルにタスクを定義することができます。</p>
+
+<h3>2. Efficient</h3>
+
+<p>node.jsのstream機能を用いているため、処理の中間ファイルなどを作ることなく、高速にビルドを行うことができます。</p>
+</div>
+      <div class='step' >
+    
+<h3>3. High Quality</h3>
+
+<p>gulpのプラグインは厳しいガイドラインに従って作成されなければいけません。それに違反すればブラックリストに登録される可能性があります。そのため、プラグインの品質は高く保たれます。</p>
+
+<h3>4. Easy to Learn</h3>
+
+<p>gulpのAPIの数は最小に保たれています。そのため覚えることはかなり少なく、簡単に使い始めることができます。</p>
 </div>
       <div class='step' >
     
@@ -135,17 +179,16 @@ gulp.task 'js', ->
 </code></pre></div>
       <div class='step' >
     
-<h2>npmコマンドから実行できるようにする</h2>
+<h2>コマンドの実行（npm）</h2>
 
 <p><strong>package.json</strong></p>
 <pre><code class='prettyprint '>  ...
   "scripts": {
-    "test": "mocha",
     "js": "gulp js" ← 追加する
   },
   ...
 </code></pre>
-<p>あとは、以下のように <code class='inline prettyprint'>npm</code> コマンドを打てば、プロジェクト（ローカル）に保存された <code class='inline prettyprint'>gulp js</code> コマンドを実行できる</p>
+<p>以下のように <code class='inline prettyprint'>npm run &lt; command &gt;</code> コマンドを打てば、ローカルのコマンドを実行できる。よって、グローバルには何も入れなくて良い。</p>
 <pre><code class='prettyprint '>$ npm run js
 </code></pre>
 <p>coffeeファイルがjsファイルに変換されていることを確認する</p>
@@ -168,7 +211,6 @@ gulp.task 'watch', ->
 <p><strong>package.json</strong> に追記する</p>
 <pre><code class='prettyprint '>  ...
   "scripts": {
-    "test": "mocha",
     "js": "gulp js",
     "watch": "gulp watch" ← 追加する
   },
@@ -234,23 +276,61 @@ gulp.task 'watch', ->
 </div>
       <div class='step' >
     
-<h1>Slide 16</h1>
+<h2>Mocha</h2>
+
+<p><img src="image/mocha.png" alt="Mocha"></p>
+
+<ul>
+<li>javascriptの単体テストで使用されるテストフレームワーク</li>
+<li>node.jsやブラウザから実行することや、非同期のテストも可能</li>
+<li>なお、mocha自体はアサーション機能は持っていません。なので、値の検証は標準のassertとかchaiとかshouldとかexpectを使用します。</li>
+<li>TDDやBDDスタイルでテストを記述でき、テスト結果もいろいろな形式で出力できます。</li>
+<li>・・・というように汎用性が高いので、毎年トレンドが変わっていたJSテストフレームワークもようやく安定か？</li>
+</ul>
 </div>
       <div class='step' >
     
-<h1>Slide 17</h1>
+<h2>expectJS</h2>
+
+<p><img src="image/LearnBoost.png" alt="expectJS"></p>
+
+<ul>
+<li><strong>should.js</strong> をべースに開発されたミニマムなBDDアサーションライブラリ</li>
+<li><strong>mongoose</strong> や <strong>stylus</strong> の作者が作成</li>
+<li>クロスブラウザ: IE6+, Firefox, Safari, Chrome, Operaで動作</li>
+<li>全てのテスティングフレームワークと併用可能</li>
+<li>Node.JSで使用可能(<code class='inline prettyprint'>require('expect.js')</code>)</li>
+<li>スタンドアローン</li>
+</ul>
 </div>
       <div class='step' >
     
-<h1>Slide 18</h1>
-</div>
+<h2>テストを書く</h2>
+<pre><code class='prettyprint '>expect = require 'expect.js'
+fizzbuzz = require '../app/FizzBuzz.js'
+
+describe 'fizzbuzz', ->
+
+    f = new fizzbuzz.FizzBuzz
+
+    it 'return string Fizz when 3 is given', ->
+        result = f.returnString( 3 )
+        expect( result ).to.be( 'Fizz' )
+
+</code></pre></div>
       <div class='step' >
     
-<h1>Slide 19</h1>
-</div>
+<h2>コードを書く</h2>
+<pre><code class='prettyprint '>root = exports ? this
+class root.FizzBuzz
+  returnString: (n) ->
+    "Fizz" # ひどいｗ
+</code></pre></div>
       <div class='step' >
     
-<h1>Slide 20</h1>
+<h1>以下開発</h1>
+
+<p>おしまい</p>
 
       </div>
     <script src="js/impress.js"></script>
