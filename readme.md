@@ -4,6 +4,8 @@
 
 ## イマドキの環境を整える
 
+[![Build Status](https://travis-ci.org/weed/FizzBuzzCoffee_p140821.svg?branch=master)](https://travis-ci.org/weed/FizzBuzzCoffee_p140821)
+
 ---
 
 ## Keywords
