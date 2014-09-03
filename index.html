@@ -237,22 +237,6 @@ gulp.task 'test', ->
 </code></pre></div>
       <div class='step' >
     
-<p><strong>package.json</strong> に追記する</p>
-<pre><code class='prettyprint '>...
-  "scripts": {
-    "js": "gulp js",
-    "watch": "gulp watch",
-    "test": "gulp test" ← 追加する
-  },
-...
-</code></pre>
-<p>これで、以下のコマンドを打つと・・・</p>
-<pre><code class='prettyprint '>$ npm run test
-</code></pre>
-<p>テストが走る。</p>
-</div>
-      <div class='step' >
-    
 <p><strong>gulpfile.coffee</strong> に追記する</p>
 <pre><code class='prettyprint '># coffeeファイルの更新を監視する
 gulp.task 'watch', ->
