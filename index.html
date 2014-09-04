@@ -38,19 +38,9 @@
 </div>
       <div class='step' >
     
-<h2>Keywords</h2>
-
-<ul>
-<li>npm</li>
-<li>Gulp</li>
-<li>Mocha + expectJS</li>
-</ul>
-</div>
-      <div class='step' >
-    
 <h2>自己紹介</h2>
 
-<p>植田達郎（@weed_7777）</p>
+<p><img src="image/weed.jpg" alt="Weed">　植田達郎（@weed_7777）</p>
 
 <ul>
 <li>フリーランス
@@ -69,11 +59,21 @@
 </div>
       <div class='step' >
     
+<h2>Keywords</h2>
+
+<ul>
+<li>npm</li>
+<li>Gulp</li>
+<li>Mocha + expectJS</li>
+</ul>
+</div>
+      <div class='step' >
+    
 <h2>NPM</h2>
 
 <p><img src="image/npm.png" alt="npm"></p>
 
-<p>Nodeのbundler。ローカルにインストールするのがデフォルト。</p>
+<p>Node版のbundler。ローカルにインストールするのがデフォルトです。</p>
 
 <h3>プロジェクトの初期化</h3>
 <pre><code class='prettyprint '>$ npm init
@@ -88,7 +88,7 @@
     
 <h2>Nodeプロジェクトの初期化</h2>
 
-<p>まずは以下のように打つ。すると、対話形式でプロジェクトの情報を入力していくことができる。</p>
+<p>まずは以下のように打ちます。すると、対話形式でプロジェクトの情報を入力していくことができます。</p>
 <pre><code class='prettyprint '>$ npm init
 
 name: (presentation) FizzBuzzCoffee_p140821
@@ -104,11 +104,11 @@ license: (ISC)
     
 <p><code class='inline prettyprint'>--save-dev</code> オプション</p>
 
-<p>インストールしたモジュールの情報を自動で <strong>package.json</strong> の <code class='inline prettyprint'>devDependencies</code> に書いてくれるオプション。</p>
+<p>インストールしたモジュールの情報を自動で <strong>package.json</strong> の <code class='inline prettyprint'>devDependencies</code> に書いてくれるオプションです。</p>
 
-<p>Development環境ではインストールされるが、Production環境ではインストールされない。</p>
+<p>Development環境ではインストールされますが、Production環境ではインストールされません。</p>
 
-<p>また、 <code class='inline prettyprint'>-g</code> オプションを付けていないので、モジュールはプロジェクトの <strong>node_modules/</strong> フォルダに保存され、プロジェクトの外側には何も残さない。</p>
+<p>また、 <code class='inline prettyprint'>-g</code> オプションを付けていないので、モジュールはプロジェクトの <strong>node_modules/</strong> フォルダに保存され、プロジェクトの外側には何も残しません。</p>
 </div>
       <div class='step' >
     
@@ -138,21 +138,32 @@ $ npm install gulp-mocha --save-dev
 
 <h3>1. Easy to use</h3>
 
-<p>コードでビルドタスクを実装するため、シンプルにタスクを定義することができます。</p>
+<ul>
+<li>コードでビルドタスクを実装するため、シンプルにタスクを定義することができます</li>
+</ul>
 
 <h3>2. Efficient</h3>
 
-<p>node.jsのstream機能を用いているため、処理の中間ファイルなどを作ることなく、高速にビルドを行うことができます。</p>
+<ul>
+<li>node.jsのstream機能を用いているため、処理の中間ファイルなどを作ることなく、高速にビルドを行うことができます</li>
+</ul>
 </div>
       <div class='step' >
     
 <h3>3. High Quality</h3>
 
-<p>gulpのプラグインは厳しいガイドラインに従って作成されなければいけません。それに違反すればブラックリストに登録される可能性があります。そのため、プラグインの品質は高く保たれます。</p>
+<ul>
+<li>gulpのプラグインは厳しいガイドラインに従って作成されなければいけません</li>
+<li>それに違反すればブラックリストに登録される可能性があります</li>
+<li>そのため、プラグインの品質は高く保たれます</li>
+</ul>
 
 <h3>4. Easy to Learn</h3>
 
-<p>gulpのAPIの数は最小に保たれています。そのため覚えることはかなり少なく、簡単に使い始めることができます。</p>
+<ul>
+<li>gulpのAPIの数は最小に保たれています</li>
+<li>そのため覚えることはかなり少なく、簡単に使い始めることができます</li>
+</ul>
 </div>
       <div class='step' >
     
@@ -164,6 +175,8 @@ require('./gulpfile.coffee');
 </code></pre></div>
       <div class='step' >
     
+<p>以下のように<code class='inline prettyprint'>coffee()</code>コマンドを通すとjsに変換されます</p>
+
 <p><strong>gulpfile.coffee</strong></p>
 <pre><code class='prettyprint '>gulp = require('gulp')
 coffee = require('gulp-coffee')
@@ -176,10 +189,15 @@ gulp.task 'js', ->
   gulp.src('test/*.coffee')
       .pipe(coffee())
       .pipe gulp.dest('test/')
+</code></pre>
+<p>これで、以下のコマンドでcoffeeファイルをjsファイルに変換します：</p>
+<pre><code class='prettyprint '>$ ./node_modules/.bin/gulp js
 </code></pre></div>
       <div class='step' >
     
-<h2>コマンドの実行（npm）</h2>
+<h2>コマンドの登録（npm）</h2>
+
+<p>コマンドが長いので登録しましょう</p>
 
 <p><strong>package.json</strong></p>
 <pre><code class='prettyprint '>  ...
@@ -188,16 +206,20 @@ gulp.task 'js', ->
   },
   ...
 </code></pre>
-<p>以下のように <code class='inline prettyprint'>npm run &lt; command &gt;</code> コマンドを打てば、ローカルのコマンドを実行できる。よって、グローバルには何も入れなくて良い。</p>
+<p>以下のように <code class='inline prettyprint'>npm run &lt; command &gt;</code> コマンドを打てば、ローカルのコマンドを実行できます。Bundlerの<code class='inline prettyprint'>bundle exec</code>みたいな感じです。よって、グローバルには何も入れなくてよいです。</p>
 <pre><code class='prettyprint '>$ npm run js
 </code></pre>
-<p>coffeeファイルがjsファイルに変換されていることを確認する</p>
+<p>これで、coffeeファイルがjsファイルに変換されます</p>
 </div>
       <div class='step' >
     
 <h2>coffeeファイルの更新を監視する</h2>
 
-<p><strong>gulpfile.coffee</strong> に追記する</p>
+<p>coffeeファイルが更新されたら自動的にjsファイルに変換するようにしましょう。</p>
+
+<p><code class='inline prettyprint'>gulp.watch</code>を使います：</p>
+
+<p><strong>gulpfile.coffee</strong> に追記します</p>
 <pre><code class='prettyprint '>...
 # coffeeファイルの更新を監視する
 gulp.task 'watch', ->
@@ -208,7 +230,7 @@ gulp.task 'watch', ->
 </code></pre></div>
       <div class='step' >
     
-<p><strong>package.json</strong> に追記する</p>
+<p><strong>package.json</strong> に追記します</p>
 <pre><code class='prettyprint '>  ...
   "scripts": {
     "js": "gulp js",
@@ -219,13 +241,15 @@ gulp.task 'watch', ->
 <p>これで、以下のコマンドを打つと・・・</p>
 <pre><code class='prettyprint '>$ npm run watch
 </code></pre>
-<p>coffeeファイルの更新を監視し始める。</p>
+<p>coffeeファイルの更新を監視し始めます。</p>
 </div>
       <div class='step' >
     
 <h2>ファイルが更新されたらテストを走らせる</h2>
 
-<p><strong>gulpfile.coffee</strong> に追記する</p>
+<p>テストファイルを<code class='inline prettyprint'>mocha()</code>に流し込みます：</p>
+
+<p><strong>gulpfile.coffee</strong> に追記します</p>
 <pre><code class='prettyprint '>...
 mocha = require('gulp-mocha')
 ...
@@ -237,7 +261,7 @@ gulp.task 'test', ->
 </code></pre></div>
       <div class='step' >
     
-<p><strong>gulpfile.coffee</strong> に追記する</p>
+<p><strong>gulpfile.coffee</strong> に追記します</p>
 <pre><code class='prettyprint '># coffeeファイルの更新を監視する
 gulp.task 'watch', ->
   gulp.watch [
@@ -250,13 +274,13 @@ gulp.task 'watch', ->
 <p>これで、以下のコマンドを打つと・・・</p>
 <pre><code class='prettyprint '>$ npm run watch
 </code></pre>
-<p>coffeeファイルを監視し、更新があればJS変換とテストが自動的に行われる。</p>
+<p>coffeeファイルを監視し、更新があればJS変換とテストが自動的に行われます。</p>
 </div>
       <div class='step' >
     
 <h1>準備完了</h1>
 
-<p>あとは <code class='inline prettyprint'>app/*.coffee</code> と <code class='inline prettyprint'>test/*.test.coffee</code> を書いていく</p>
+<p>あとは <code class='inline prettyprint'>app/*.coffee</code> と <code class='inline prettyprint'>test/*.test.coffee</code> を書いていきます</p>
 </div>
       <div class='step' >
     
@@ -267,7 +291,8 @@ gulp.task 'watch', ->
 <ul>
 <li>javascriptの単体テストで使用されるテストフレームワーク</li>
 <li>node.jsやブラウザから実行することや、非同期のテストも可能</li>
-<li>なお、mocha自体はアサーション機能は持っていません。なので、値の検証は標準のassertとかchaiとかshouldとかexpectを使用します。</li>
+<li>なお、mocha自体はアサーション機能は持っていません</li>
+<li>なので、値の検証は標準のassertとかchaiとかshouldとかexpectを使用します</li>
 <li>TDDやBDDスタイルでテストを記述でき、テスト結果もいろいろな形式で出力できます。</li>
 <li>・・・というように汎用性が高いので、毎年トレンドが変わっていたJSテストフレームワークもようやく安定か？</li>
 </ul>
@@ -276,7 +301,7 @@ gulp.task 'watch', ->
     
 <h2>expectJS</h2>
 
-<p><img src="image/LearnBoost.png" alt="expectJS"></p>
+<p><img src="image/LearnBoost.png" alt="expectJS">（作者のLearnBoostさんのアイコン）</p>
 
 <ul>
 <li><strong>should.js</strong> をべースに開発されたミニマムなBDDアサーションライブラリ</li>
@@ -312,9 +337,332 @@ class root.FizzBuzz
 </code></pre></div>
       <div class='step' >
     
-<h1>以下開発</h1>
+<h1>あとは開発</h1>
+</div>
+      <div class='step' >
+    
+<h1>おまけ</h1>
+</div>
+      <div class='step' >
+    
+<h2>このプレゼンテーションはMarkdownで書いてます</h2>
 
-<p>おしまい</p>
+<p>例えば↓が・・・</p>
+<pre><code class='prettyprint '># おまけ
+
+おまけです
+
+---
+
+## このプレゼンテーションはMarkdownで書いてます
+
+- 説明
+  + 説明
+  + 説明
+</code></pre></div>
+      <div class='step' >
+    
+<h1>おまけ</h1>
+
+<p>おまけです</p>
+</div>
+      <div class='step' >
+    
+<h2>このプレゼンテーションはMarkdownで書いてます</h2>
+
+<ul>
+<li>説明
+
+<ul>
+<li>説明</li>
+<li>説明</li>
+</ul></li>
+</ul>
+</div>
+      <div class='step' >
+    
+<p>例えば↓が・・・</p>
+<pre><code class='prettyprint '>## expectJS
+
+![expectJS](image/LearnBoost.png)（作者のLearnBoostさんのアイコン）
+
+- **should.js** をべースに開発されたミニマムなBDDアサーションライブラリ
+- **mongoose** や **stylus** の作者が作成
+- クロスブラウザ: IE6+, Firefox, Safari, Chrome, Operaで動作
+- 全てのテスティングフレームワークと併用可能
+- Node.JSで使用可能(`require('expect.js')`)
+- スタンドアローン
+</code></pre></div>
+      <div class='step' >
+    
+<h2>expectJS</h2>
+
+<p><img src="image/LearnBoost.png" alt="expectJS">（作者のLearnBoostさんのアイコン）</p>
+
+<ul>
+<li><strong>should.js</strong> をべースに開発されたミニマムなBDDアサーションライブラリ</li>
+<li><strong>mongoose</strong> や <strong>stylus</strong> の作者が作成</li>
+<li>クロスブラウザ: IE6+, Firefox, Safari, Chrome, Operaで動作</li>
+<li>全てのテスティングフレームワークと併用可能</li>
+<li>Node.JSで使用可能(<code class='inline prettyprint'>require('expect.js')</code>)</li>
+<li>スタンドアローン</li>
+</ul>
+</div>
+      <div class='step' >
+    
+<h2>mdpress</h2>
+
+<p><img src="image/mdpress.png" alt="mdpress">（作者のAditya Bhargavaさん・・・読めない汗）</p>
+
+<ul>
+<li>MarkDown文書からプレゼンテーションを生成するgem</li>
+</ul>
+<pre><code class='prettyprint '>$ mdpress readme.md
+</code></pre>
+<ul>
+<li>これだけで <strong>readme</strong> というフォルダが作成され、その中の <strong>index.html</strong> を開くとプレゼンテーションが始まります</li>
+</ul>
+</div>
+      <div class='step' >
+    
+<p>DEMO: このプレゼンテーションのソース</p>
+</div>
+      <div class='step' >
+    
+<h2>mdpressの良いところ</h2>
+
+<ul>
+<li>Markdownラクチン！</li>
+<li>とりあえずLT用に見出しだけ作って、</li>
+<li>LT後に加筆すれば記事になります</li>
+<li>できた記事をQiita・はてなブログに貼り付ければパブリッシュ完了</li>
+<li>無駄がないワークフロー</li>
+</ul>
+</div>
+      <div class='step' >
+    
+<h2>シンタックスハイライト：Ruby</h2>
+<pre><code class='prettyprint '>configure :production do
+  set :cache, Dalli::Client.new(
+    ENV['MEMCACHE_SERVERS'],
+    :username => ENV['MEMCACHE_USERNAME'],
+    :password => ENV['MEMCACHE_PASSWORD'],
+    :expires_in => 60 * 30
+  )
+end
+</code></pre></div>
+      <div class='step' >
+    
+<h2>シンタックスハイライト：Objective-C</h2>
+<pre><code class='prettyprint Objective-C'>NSBundle* bundle = [NSBundle mainBundle];
+NSString* path = [bundle pathForResource:@"Questions" ofType:@"plist"];
+questions = [NSArray arrayWithContentsOfFile:path];
+QuestionsMax = questions.count;
+
+for(NSDictionary* question in questions) {
+    NSLog(@"question:%@", [question objectForKey:@"Question"]);
+    NSLog(@"answer:%@", [question objectForKey:@"CorrectAnswer"]);
+    NSLog(@"incorrect answer:%@", [question objectForKey:@"IncorrectAnswer"]);
+    NSLog(@"backgroundImage:%@", [question objectForKey:@"backgroundImage"]);
+}
+</code></pre></div>
+      <div class='step' >
+    
+<ul>
+<li><p>言語別のシンタックスハイライトには未対応</p></li>
+<li><p>しかたないので<a href="http://markup.su/highlighter/">Online syntax highlighter like TextMate</a>でシンタックスハイライトします</p></li>
+</ul>
+</div>
+      <div class='step' >
+    
+<h2>シンタックスハイライト：Objective-C</h2>
+
+<pre style="background:#fff;color:#3b3b3b"><span style="color:#a535ae">NSBundle</span>* bundle = [<span style="color:#a535ae">NSBundle</span> <span style="color:#45ae34;font-weight:700">mainBundle</span>];
+<span style="color:#a535ae">NSString</span>* path = [bundle <span style="color:#45ae34;font-weight:700">pathForResource:</span>@"Questions" <span style="color:#45ae34;font-weight:700">ofType:</span>@"plist"];
+questions = [<span style="color:#a535ae">NSArray</span> <span style="color:#45ae34;font-weight:700">arrayWithContentsOfFile:</span>path];
+QuestionsMax = questions.count;
+
+<span style="color:#069;font-weight:700">for</span>(<span style="color:#a535ae">NSDictionary</span>* question in questions) {
+    NSLog(@"question:%@", [question objectForKey:@"Question"]);
+    NSLog(@"answer:%@", [question objectForKey:@"CorrectAnswer"]);
+    NSLog(@"incorrect answer:%@", [question objectForKey:@"IncorrectAnswer"]);
+    NSLog(@"backgroundImage:%@", [question objectForKey:@"backgroundImage"]);
+}
+</pre>
+</div>
+      <div class='step' >
+    
+<p>しかし・・・</p>
+
+<p>Markdown文書を編集</p>
+
+<p>→mdpressコマンドを実行</p>
+
+<p>→ブラウザに移る</p>
+
+<p>→ブラウザを更新</p>
+
+<p>→Markdown文書の編集に戻る</p>
+</div>
+      <div class='step' >
+    
+<h1>めんどくさい</h1>
+</div>
+      <div class='step' >
+    
+<h2>mdpress-generator</h2>
+
+<p><img src="image/BrianHolt.png" alt="Brian Holt">（作者のBrian Holtさん）</p>
+
+<ul>
+<li>mdpressの作業を自動化します</li>
+</ul>
+<pre><code class='prettyprint '>$ yo mdpress
+</code></pre>
+<ul>
+<li>これで自動化準備完了</li>
+</ul>
+</div>
+      <div class='step' >
+    <pre><code class='prettyprint '>$ grunt server
+</code></pre>
+<p>これで</p>
+
+<ul>
+<li>プレゼンテーションをブラウザで開き</li>
+<li>mdpressのソースファイルを監視し</li>
+<li>更新があるとプレゼンテーションを更新し</li>
+<li>ブラウザの更新（LiveReload）までしてくれます</li>
+</ul>
+
+<p>つまり<strong>全自動</strong></p>
+
+<p>2画面あると、片方で編集、もう片方で仕上がりのチェックができます</p>
+</div>
+      <div class='step' >
+    
+<p>では作ったプレゼンテーションをどこに置くか？</p>
+</div>
+      <div class='step' >
+    
+<h2>GitHub Pagesでプレゼンテーション</h2>
+</div>
+      <div class='step' >
+    
+<p>DEMO：このプレゼンテーションのリポジトリ</p>
+</div>
+      <div class='step' >
+    
+<h2>つくり方</h2>
+
+<ol>
+<li>まず、普通にMarkdown文書を作る</li>
+<li><code class='inline prettyprint'>$ mdpress readme.md</code>でプレゼンテーションが <em>readme</em> フォルダに作られる</li>
+<li>originブランチにpush</li>
+<li>Setting -&gt; GitHub Pagesで空のGitHub Pagesをつくる</li>
+<li>gh-pagesブランチがGitHub上にできる</li>
+<li>pullするとgh-pagesブランチもローカルに付いてくる</li>
+<li><code class='inline prettyprint'>$ git checkout gh-pages</code></li>
+<li><code class='inline prettyprint'>$ cp -rf readme/* .</code></li>
+<li><code class='inline prettyprint'>$ git push -u origin gh-pages</code> （最初だけ）</li>
+<li><code class='inline prettyprint'>$ git push</code> （2回目以降）</li>
+</ol>
+</div>
+      <div class='step' >
+    
+<h2>良いところ</h2>
+
+<ul>
+<li>改訂したとき、diffが見れる</li>
+<li>プルリクも送ることができる</li>
+<li>ソース(Markdown)とプレゼンテーション(HTML)を同じ一つのリポジトリで管理できる</li>
+<li>Qiitaやはてなブログのように、画像を一枚一枚アップしなくて良い</li>
+<li>LT後の質疑などの内容を、筆者だけでなく聞いた人もプルリクで追記できる</li>
+</ul>
+</div>
+      <div class='step' >
+    
+<h2>悪いところ</h2>
+
+<ul>
+<li>更新がややこしい</li>
+</ul>
+</div>
+      <div class='step' >
+    
+<h2>更新のやり方</h2>
+
+<ol>
+<li>[origin] まずoriginブランチであるか確認</li>
+<li>[origin] Markdownに追記</li>
+<li>[origin] Markdownエディタを終了</li>
+<li>[origin] git push</li>
+<li>[origin] mdpressでリポジトリとは別のフォルダにプレゼン作成</li>
+<li>[gh-pages] gh-pagesブランチに切り替える</li>
+<li>[gh-pages] プレゼンをリポジトリにコピー</li>
+<li>[gh-pages] git push</li>
+<li>[origin] originブランチに戻しておく</li>
+</ol>
+</div>
+      <div class='step' >
+    
+<h2>push.sh</h2>
+<pre><code class='prettyprint '># レポジトリに入る
+# フォルダ名は引数にしたい
+cd 140127-2013-soukatsu-2014-houshin
+
+# Markdownをpush
+git add .
+git commit -m "commited automatically by push.sh"
+git push
+
+# mdpressコマンドでreadmeフォルダを生成
+cd ..
+mdpress 140127-2013-soukatsu-2014-houshin/readme.md
+
+# gh-pagesブランチに切り替える
+cd 140127-2013-soukatsu-2014-houshin
+git checkout gh-pages
+</code></pre></div>
+      <div class='step' >
+    <pre><code class='prettyprint '># 先ほど生成したreadmeフォルダの中身をレポジトリにコピーする
+cp -rf ../readme/* .
+
+# 自動的にcommit＋push
+git add .
+git commit -m "commited automatically by push.sh"
+git push
+
+# originブランチに戻す
+git checkout master
+
+# 元いたディレクトリに戻る
+cd ..
+</code></pre></div>
+      <div class='step' >
+    
+<h2>gulp-gh-pages</h2>
+
+<p><img src="image/MichealBenedict.jpeg" alt="Micheal Benedict">（作者のMicheal Benedictさん。Twitter社に勤務。）</p>
+<pre><code class='prettyprint '>$ gulp deploy
+</code></pre>
+<p>これで全部やってくれます</p>
+
+<p>ひえー</p>
+</div>
+      <div class='step' >
+    
+<h2>まとめ</h2>
+
+<ul>
+<li>mdpress</li>
+<li>mdpress-genarator</li>
+<li>gulp-gh-pages</li>
+</ul>
+
+<p>・・・で、快適なプレゼンテーションライフを実現しましょう</p>
+
+<p>ご清聴ありがとうございました</p>
 
       </div>
     <script src="js/impress.js"></script>
