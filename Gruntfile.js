@@ -37,7 +37,10 @@ module.exports = function(grunt) {
           'themes/{,*/}*.html',
           'themes/{,*/}*.css'
         ],
-        tasks: ['shell:compile']
+        tasks: [
+          'shell:compile',
+          'shell:copy'
+        ]
       },
       livereload: {
         files: [
@@ -55,6 +58,9 @@ module.exports = function(grunt) {
     shell: {
       compile: {
         command : 'mdpress readme.md -s default'
+      },
+      copy: {
+        command : 'cp -r image readme/'
       }
     }
   });
@@ -65,6 +71,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['compile']);
   grunt.registerTask('server', [
     'shell:compile',
+    'shell:copy',
     'livereload-start',
     'connect:livereload',
     'open',
