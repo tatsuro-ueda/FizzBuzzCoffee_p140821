@@ -25,6 +25,12 @@ title: JSアプリをCoffeeでTDDするイマドキの環境
 
 ---
 
+「**WebStorm**（IntelliJのJS版）が便利っぽい」
+
+## タイトル変更
+
+---
+
 ## Keywords
 
 - npm
@@ -345,7 +351,9 @@ class root.FizzBuzz
 
 ---
 
-# おまけ
+# Markdown
+
+## でプレゼンテーション！
 
 ---
 
@@ -427,7 +435,7 @@ $ mdpress readme.md
 
 ---
 
-DEMO: このプレゼンテーションのソース
+DEMO: このプレゼンテーションのソース（Sublime）
 
 ---
 
@@ -688,7 +696,7 @@ $ gulp deploy
 （作者のCedricさん。フランスからPivotal社にリモート勤務）
 
 ```
-$ deck2pdf index.html
+$ deck2pdf --profile=impressjs index.html
 ```
 
 これで全部やってくれます
@@ -704,7 +712,9 @@ $ deck2pdf index.html
 - gulp-gh-pages
 - deck2pdf
 
-・・・で、快適なプレゼンテーションライフを実現しましょう
+・・・で、MarkdownでGitHubな
+
+プレゼンテーションライフを実現しましょう
 
 ご清聴ありがとうございました
 
