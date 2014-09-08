@@ -606,6 +606,8 @@ QuestionsMax = questions.count;
 </div>
       <div class='step' >
     
+<p>スクリプト化してみる：</p>
+
 <h2>push.sh</h2>
 <pre><code class='prettyprint '># レポジトリに入る
 # フォルダ名は引数にしたい
@@ -619,13 +621,13 @@ git push
 # mdpressコマンドでreadmeフォルダを生成
 cd ..
 mdpress 140127-2013-soukatsu-2014-houshin/readme.md
-
-# gh-pagesブランチに切り替える
-cd 140127-2013-soukatsu-2014-houshin
-git checkout gh-pages
 </code></pre></div>
       <div class='step' >
-    <pre><code class='prettyprint '># 先ほど生成したreadmeフォルダの中身をレポジトリにコピーする
+    <pre><code class='prettyprint '># gh-pagesブランチに切り替える
+cd 140127-2013-soukatsu-2014-houshin
+git checkout gh-pages
+
+# 先ほど生成したreadmeフォルダの中身をレポジトリにコピーする
 cp -rf ../readme/* .
 
 # 自動的にcommit＋push
@@ -641,10 +643,47 @@ cd ..
 </code></pre></div>
       <div class='step' >
     
+<h1>めんどくさい</h1>
+</div>
+      <div class='step' >
+    
 <h2>gulp-gh-pages</h2>
 
-<p><img src="image/MichealBenedict.jpeg" alt="Micheal Benedict">（作者のMicheal Benedictさん。Twitter社に勤務。）</p>
+<p><img src="image/MichealBenedict.jpeg" alt="Micheal Benedict"></p>
+
+<p>（作者のMicheal Benedictさん。Twitter社に勤務。）</p>
 <pre><code class='prettyprint '>$ gulp deploy
+</code></pre>
+<p>これで全部やってくれます</p>
+
+<p>ひえー</p>
+</div>
+      <div class='step' >
+    
+<h2>さて、プレゼンが終わって</h2>
+
+<ul>
+<li>作ったプレゼンをSpeakerDeckやSlideShareにアップしたい</li>
+<li>今までは・・・HTMLページを一枚ずつPDFにして、</li>
+<li>あとでたばねて一つのPDFファイルにしていた</li>
+</ul>
+</div>
+      <div class='step' >
+    
+<h1>めんどくさい</h1>
+</div>
+      <div class='step' >
+    
+<h2>deck2pdfで、スライドすべてを一括PDF化</h2>
+</div>
+      <div class='step' >
+    
+<h2>deck2pdf</h2>
+
+<p><img src="image/CedricChampeau.jpeg" alt="CedricChampeau"></p>
+
+<p>（作者のCedricさん。フランスからPivotal社にリモート勤務）</p>
+<pre><code class='prettyprint '>$ deck2pdf index.html
 </code></pre>
 <p>これで全部やってくれます</p>
 
@@ -658,12 +697,15 @@ cd ..
 <li>mdpress</li>
 <li>mdpress-genarator</li>
 <li>gulp-gh-pages</li>
+<li>deck2pdf</li>
 </ul>
 
 <p>・・・で、快適なプレゼンテーションライフを実現しましょう</p>
 
 <p>ご清聴ありがとうございました</p>
-
+</div>
+      <div class='step' >
+    
       </div>
     <script src="js/impress.js"></script>
     <script>impress().init();</script>
