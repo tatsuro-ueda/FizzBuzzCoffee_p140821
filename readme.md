@@ -17,11 +17,11 @@ title: JSアプリをCoffeeでTDDするイマドキの環境
 ![Weed](image/weed.jpg)　植田達郎（@weed_7777）
 
 - フリーランス
-	- JavaScript
-	- Objective-C
+    - JavaScript
+    - Objective-C
 - 趣味
-	- 自転車
-	- 城巡り
+    - 自転車
+    - 城巡り
 
 ---
 
@@ -603,6 +603,8 @@ DEMO：このプレゼンテーションのリポジトリ
 
 ---
 
+スクリプト化してみる：
+
 ## push.sh
 
 ```
@@ -618,14 +620,14 @@ git push
 # mdpressコマンドでreadmeフォルダを生成
 cd ..
 mdpress 140127-2013-soukatsu-2014-houshin/readme.md
-
-# gh-pagesブランチに切り替える
-cd 140127-2013-soukatsu-2014-houshin
-git checkout gh-pages
 ```
 
 ---
 ```
+# gh-pagesブランチに切り替える
+cd 140127-2013-soukatsu-2014-houshin
+git checkout gh-pages
+
 # 先ほど生成したreadmeフォルダの中身をレポジトリにコピーする
 cp -rf ../readme/* .
 
@@ -643,12 +645,50 @@ cd ..
 
 ---
 
+# めんどくさい
+
+---
+
 ## gulp-gh-pages
 
-![Micheal Benedict](image/MichealBenedict.jpeg)（作者のMicheal Benedictさん。Twitter社に勤務。）
+![Micheal Benedict](image/MichealBenedict.jpeg)
+
+（作者のMicheal Benedictさん。Twitter社に勤務。）
 
 ```
 $ gulp deploy
+```
+
+これで全部やってくれます
+
+ひえー
+
+---
+
+## さて、プレゼンが終わって
+
+- 作ったプレゼンをSpeakerDeckやSlideShareにアップしたい
+- 今までは・・・HTMLページを一枚ずつPDFにして、
+- あとでたばねて一つのPDFファイルにしていた
+
+---
+
+# めんどくさい
+
+---
+
+## deck2pdfで、スライドすべてを一括PDF化
+
+---
+
+## deck2pdf
+
+![CedricChampeau](image/CedricChampeau.jpeg)
+
+（作者のCedricさん。フランスからPivotal社にリモート勤務）
+
+```
+$ deck2pdf index.html
 ```
 
 これで全部やってくれます
@@ -662,7 +702,10 @@ $ gulp deploy
 - mdpress
 - mdpress-genarator
 - gulp-gh-pages
+- deck2pdf
 
 ・・・で、快適なプレゼンテーションライフを実現しましょう
 
 ご清聴ありがとうございました
+
+---
