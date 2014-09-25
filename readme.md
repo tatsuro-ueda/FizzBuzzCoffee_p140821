@@ -8,6 +8,8 @@ title: JSアプリをCoffeeでTDDするイマドキの環境
 
 ## イマドキの環境を整える
 
+## （タイトルに偽りあり）
+
 [![Build Status](https://travis-ci.org/weed/FizzBuzzCoffee_p140821.svg?branch=master)](https://travis-ci.org/weed/FizzBuzzCoffee_p140821)
 
 ---
@@ -22,12 +24,6 @@ title: JSアプリをCoffeeでTDDするイマドキの環境
 - 趣味
     - 自転車
     - 城巡り
-
----
-
-「**WebStorm**（IntelliJのJS版）が便利っぽい」
-
-## タイトル変更
 
 ---
 
@@ -348,6 +344,48 @@ class root.FizzBuzz
 ---
 
 # あとは開発
+
+---
+
+## などと書きましたが・・・
+
+## 以下むさしのプレイスで追加したスライド
+
+---
+
+## WebStormすげえ便利
+
+- Coffee変換ラクチン！
+- Angular入力補完バリバリ！
+- Mochaテストもできる！
+
+---
+
+## Yeomanすげえ便利
+
+```
+$ yo angular-fullstack
+```
+
+とかやると全部やってくれる
+
+watch、LiveReload、jslint、uglifyとか
+
+え？Coffee？
+
+```
+$ yo angular-fullstack --coffee
+```
+
+---
+
+## もうGruntfileやgulpfile書いている時代は終わった？
+
+## 自分で書くのがバカバカしくなる
+
+---
+
+## 以上、むさしのプレイスで追加しました
 
 ---
 
@@ -685,10 +723,6 @@ $ gulp deploy
 
 ---
 
-## deck2pdfで、スライドすべてを一括PDF化
-
----
-
 ## deck2pdf
 
 ![CedricChampeau](image/CedricChampeau.jpeg)
@@ -699,7 +733,7 @@ $ gulp deploy
 $ deck2pdf --profile=impressjs index.html
 ```
 
-これで全部やってくれます
+これで1つのPDFファイルにしてくれます
 
 ひえー
 
