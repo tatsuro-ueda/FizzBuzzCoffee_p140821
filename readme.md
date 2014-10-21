@@ -2,15 +2,21 @@
 title: JSアプリをCoffeeでTDDするイマドキの環境
 ---
 
+## Markdownでプレゼンテーション！
+
+[![Build Status](https://travis-ci.org/weed/FizzBuzzCoffee_p140821.svg?branch=master)](https://travis-ci.org/weed/FizzBuzzCoffee_p140821)
+
+---
+
+元々のタイトル
+
 ## JSアプリケーションを
 
 ## CoffeeScriptでテスト駆動開発する
 
 ## イマドキの環境を整える
 
-## （タイトルに偽りあり）
-
-[![Build Status](https://travis-ci.org/weed/FizzBuzzCoffee_p140821.svg?branch=master)](https://travis-ci.org/weed/FizzBuzzCoffee_p140821)
+・・・興味ございますか？
 
 ---
 
@@ -349,8 +355,6 @@ class root.FizzBuzz
 
 ## などと書きましたが・・・
 
-## 以下むさしのプレイスで追加したスライド
-
 ---
 
 ## WebStormすげえ便利
@@ -382,10 +386,6 @@ $ yo angular-fullstack --coffee
 ## もうGruntfileやgulpfile書いている時代は終わった？
 
 ## 自分で書くのがバカバカしくなる
-
----
-
-## 以上、むさしのプレイスで追加しました
 
 ---
 
