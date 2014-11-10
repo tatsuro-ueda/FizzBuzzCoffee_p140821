@@ -561,7 +561,7 @@ Markdown文書を編集
 
 ---
 
-## mdpress-generator
+## generator-mdpress
 
 ![Brian Holt](image/BrianHolt.png)（作者のBrian Holtさん）
 
