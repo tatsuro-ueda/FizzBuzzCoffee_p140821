@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JSアプリをCoffeeでTDDするイマドキの環境</title>
+    <link href="css/reset.css" rel="stylesheet" />
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="shortcut icon" href="css/favicon.png" />
+    <link rel="apple-touch-icon" href="css/apple-touch-icon.png" />
+    <!-- Code Prettifier: -->
+<link href="css/highlight.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="css/style.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,800italic,300,400,800' rel='stylesheet' type='text/css'>    
+
+
+  </head>
+
+  <body>
+  <div class="fallback-message">
+  <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+  <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+  </div>
+    <div id="impress">
+
+      <div class='step' >
+    
+<h2>GitHub Pagesでプレゼンテーション</h2>
+</div>
+      <div class='step' >
+    
+<p>DEMO：このプレゼンテーションのリポジトリ</p>
+</div>
+      <div class='step' >
+    
+<h2>つくり方</h2>
+
+<ol>
+<li>まず、普通にMarkdown文書を作る</li>
+<li><code class='inline prettyprint'>$ mdpress readme.md</code>でプレゼンテーションが <em>readme</em> フォルダに作られる</li>
+<li>originブランチにpush</li>
+<li>Setting -&gt; GitHub Pagesで空のGitHub Pagesをつくる</li>
+<li>gh-pagesブランチがGitHub上にできる</li>
+<li>pullするとgh-pagesブランチもローカルに付いてくる</li>
+<li><code class='inline prettyprint'>$ git checkout gh-pages</code></li>
+<li><code class='inline prettyprint'>$ cp -rf readme/* .</code></li>
+<li><code class='inline prettyprint'>$ git push -u origin gh-pages</code> （最初だけ）</li>
+<li><code class='inline prettyprint'>$ git push</code> （2回目以降）</li>
+</ol>
+</div>
+      <div class='step' >
+    
+<h2>良いところ</h2>
+
+<ul>
+<li>改訂したとき、diffが見れる</li>
+<li>プルリクも送ることができる</li>
+<li>ソース(Markdown)とプレゼンテーション(HTML)を同じ一つのリポジトリで管理できる</li>
+<li>Qiitaやはてなブログのように、画像を一枚一枚アップしなくて良い</li>
+<li>LT後の質疑などの内容を、筆者だけでなく聞いた人もプルリクで追記できる</li>
+</ul>
+</div>
+      <div class='step' >
+    
+<h2>悪いところ</h2>
+
+<ul>
+<li>更新がややこしい</li>
+</ul>
+</div>
+      <div class='step' >
+    
+<h2>更新のやり方</h2>
+
+<ol>
+<li>[origin] まずoriginブランチであるか確認</li>
+<li>[origin] Markdownに追記</li>
+<li>[origin] Markdownエディタを終了</li>
+<li>[origin] git push</li>
+<li>[origin] mdpressでリポジトリとは別のフォルダにプレゼン作成</li>
+<li>[gh-pages] gh-pagesブランチに切り替える</li>
+<li>[gh-pages] プレゼンをリポジトリにコピー</li>
+<li>[gh-pages] git push</li>
+<li>[origin] originブランチに戻しておく</li>
+</ol>
+</div>
+      <div class='step' >
+    
+<p>スクリプト化してみる：</p>
+
+<h2>push.sh</h2>
+<pre><code class='prettyprint '># レポジトリに入る
+# フォルダ名は引数にしたい
+cd 140127-2013-soukatsu-2014-houshin
+
+# Markdownをpush
+git add .
+git commit -m "commited automatically by push.sh"
+git push
+
+# mdpressコマンドでreadmeフォルダを生成
+cd ..
+mdpress 140127-2013-soukatsu-2014-houshin/readme.md
+</code></pre></div>
+      <div class='step' >
+    <pre><code class='prettyprint '># gh-pagesブランチに切り替える
+cd 140127-2013-soukatsu-2014-houshin
+git checkout gh-pages
+
+# 先ほど生成したreadmeフォルダの中身をレポジトリにコピーする
+cp -rf ../readme/* .
+
+# 自動的にcommit＋push
+git add .
+git commit -m "commited automatically by push.sh"
+git push
+
+# originブランチに戻す
+git checkout master
+
+# 元いたディレクトリに戻る
+cd ..
+</code></pre></div>
+      <div class='step' >
+    
+<h1>めんどくさい</h1>
+</div>
+      <div class='step' >
+    
+<h2>gulp-gh-pages</h2>
+
+<p><img src="image/MichealBenedict.jpeg" alt="Micheal Benedict"></p>
+
+<p>（作者のMicheal Benedictさん。Twitter社に勤務。）</p>
+<pre><code class='prettyprint '>$ gulp deploy
+</code></pre>
+<p>これで全部やってくれます</p>
+
+<p>ひえー</p>
+</div>
+      <div class='step' >
+    
+<h2>さて、プレゼンが終わって</h2>
+
+<ul>
+<li>作ったプレゼンをSpeakerDeckやSlideShareにアップしたい</li>
+<li>今までは・・・HTMLページを一枚ずつPDFにして、</li>
+<li>あとでたばねて一つのPDFファイルにしていた</li>
+</ul>
+</div>
+      <div class='step' >
+    
+<h1>めんどくさい</h1>
+</div>
+      <div class='step' >
+    
+<h2>deck2pdf</h2>
+
+<p><img src="image/CedricChampeau.jpeg" alt="CedricChampeau"></p>
+
+<p>（作者のCedricさん。フランスからPivotal社にリモート勤務）</p>
+<pre><code class='prettyprint '>$ deck2pdf --profile=impressjs index.html
+</code></pre>
+<p>これで1つのPDFファイルにしてくれます</p>
+
+<p>ひえー</p>
+</div>
+      <div class='step' >
+    
+<h2>まとめ</h2>
+
+<ul>
+<li>mdpress</li>
+<li>mdpress-genarator</li>
+<li>gulp-gh-pages</li>
+<li>deck2pdf</li>
+</ul>
+
+<p>・・・で、MarkdownでGitHubな</p>
+
+<p>プレゼンテーションライフを実現しましょう</p>
+
+<p>ご清聴ありがとうございました</p>
+</div>
+      <div class='step' >
+    
+      </div>
+    <script src="js/impress.js"></script>
+    <script>impress().init();</script>
+  </body>
+</html>
+    
